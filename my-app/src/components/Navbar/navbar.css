@@ -1,0 +1,7 @@
+a {
+    color: black;
+    padding: 0.2rem 1rem;
+}
+a.active {
+    color: blue;
+}
