@@ -25,6 +25,8 @@
     padding: .5rem;
     border: 1px solid #aaa;
     margin-top: .5rem;
+    box-shadow: .15rem .15rem rgb(240, 238, 238);
+    display: flex;
 }
 
 h3{
@@ -33,4 +35,19 @@ h3{
 
 p{
     margin: 0.05rem;
+}
+
+img{
+    width: 20%;
+    height: 20%;
+
+}
+
+.info{
+    padding-left: 1rem;
+    text-align: left;
+}
+
+.info a{
+    padding: 0rem;
 }
