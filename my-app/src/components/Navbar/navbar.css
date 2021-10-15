@@ -1,7 +1,12 @@
 a {
     color: black;
     padding: 0.2rem 1rem;
+    font-size: large;
 }
 a.active {
     color: blue;
+}
+.navbar{
+    padding: 0.5rem;
+    background-color: rgb(240, 238, 238);
 }

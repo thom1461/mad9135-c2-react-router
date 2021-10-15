@@ -7,7 +7,7 @@ export default function UserList(props) {
     const [list, setList] = useState([]);
 
     useEffect(() => {
-        fetchData('not_used_yet');
+        fetchData('userList');
     }, []);
 
     async function fetchData(type) {
@@ -18,6 +18,8 @@ export default function UserList(props) {
     }
 
     function findUser(id) {
+        let fu = list.find((item, index) => parseInt(id) === index + 1);
+        console.log("User ID:", fu);
         return list.find((item, index) => parseInt(id) === index + 1);
     }
 
@@ -26,25 +28,27 @@ export default function UserList(props) {
             {list.length === 0 && <p>Loading...</p>}
             <div className="user-list">
             {list.map((item, index) => (
-                <div>
-                    <p className="userName" key={item.name.last}>
-                        {item.name.first} {item.name.last}
-                    </p>
-                    <p className="userEmail" key={item.email}>
-                        {item.email}
-                    </p>
-                    <p className="userCell" key={item.cell}>
-                        {item.cell}
-                        <NavLink to={`/userDetails/${index + 1}`}>Learn More</NavLink>
-                    </p>
-                    <img src={item.picture.thumbnail} alt={item.name.last}/>
+                <div className="person">
+                    <img src={item.picture.medium} alt={item.name.last} />
+                    <div>
+                        <h3 className="userName" key={item.name.last}>
+                            {item.name.first} {item.name.last}
+                        </h3>
+                        <p className="userEmail" key={item.email}>
+                            {item.email}
+                        </p>
+                        <p className="userCell" key={item.cell}>
+                            {item.cell} 
+                        </p>
+                        <NavLink to={`/userList/${index + 1}`}>More Details</NavLink>
+                    </div>
                 </div>
                 ))}
             </div>
 
             <div className="user-details">
-                <Route path="/userDetails/:id">
-                    <UserDetails findPerson={findUser} />
+                <Route path="/userList/:id">
+                    <UserDetails findUser={findUser} />
                 </Route>
             </div>
         </div>

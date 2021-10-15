@@ -2,37 +2,34 @@ import { useState, useEffect } from 'react';
 //import { Route, NavLink } from 'react-router-dom';
 import './addressList.css';
 
-export default function Addresslist(props) {
+export default function AddressList(props) {
     const [list, setList] = useState([]);
 
-    useEffect(() => {
-        fetchData('addressList');
-    }, []);
-
-    async function fetchData(type) {
-        let url = ``;
+    async function fetchData() {
+        let url = `https://randomuser.me/api/?results=25&seed=thom1461&format=json&nat=ca`;
         let resp = await fetch(url);
         let data = await resp.json();
         setList(data.results);
     }
 
-    function findAddress(id) {
-        return list.find((item, index) => parseInt(id) === index + 1);
-    }
+    useEffect(() => {
+        console.log('useEffect was called.');
+        fetchData();
+    }, []);
 
     return (
         <div className="addressList">
             {list.length === 0 && <p>Loading...</p>}
             <div className="address-list">
             {list.map((item, index) => (
-                    <p className="addressList" key={item.name}>
-                        {item.name}
+                <div>
+                    <p className="userName" key={item.name.last}>
+                        {item.name.first} {item.name.last}
                     </p>
-                ))}
-                {list.map((item, index) => (
-                    <p className="addressList" key={item.email}>
+                    <p className="address" key={item.location.street}>
                         {item.location.street}, {item.location.city}, {item.location.state}, {item.location.postcode}
                     </p>
+                </div>
                 ))}
             </div>
         </div>

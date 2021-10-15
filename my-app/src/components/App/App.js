@@ -29,7 +29,7 @@ function App() {
             render={(props) => {
               return (
                 <div className="home" style={{ padding: '1rem' }}>
-                  <p>This is the home-ish page</p>
+                  <p></p>
                   <Home manually={props} isAlive={true} anything={1} />
                 </div>
               );

@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 export default function Home(props) {
     return (
         <div className="home">
-            <p>Home page.</p>
+            <h1>Home page!!!</h1>
+            <p>Select User list to find users, select Address list to find their address</p>
         </div>
     );
 }
