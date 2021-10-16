@@ -1,28 +1,32 @@
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+//import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-export default function UserDetails({ findUser }) {
-    const [userDetails, setUser] = useState(null);
-    let { id } = useParams();
 
-    useEffect(() => {
-        setUser(findUser(id));
-    }, [findUser, id]);
+//export default function UserDetails({ findUser }) {
+export default function UserDetails({ list }) {
+    //const [userDetails, setUser] = useState(null);
+    let { id } = useParams();
+    //console.log("List: ", list);
+    let userDetails = list.find((item, index) => parseInt(id) === index + 1);
+    
+    // useEffect(() => {
+    //     setUser(findUser(id));
+    // }, [findUser, id]);
 
     return (
         <div>
             <p>The details about User {id}</p>
-            {/* <img src={userDetails.picture.large} alt={userDetails.name.last}/> */}
+            <img src={userDetails.picture.large} alt={userDetails.name.last}/>
             <h3>Address</h3>
-            {/* <div>
-                <p>{userDetails.location.street}, {userDetails.location.city}, {userDetails.location.state}, {userDetails.location.postcode}</p>
-            </div> */}
+            <div>
+                <p>{userDetails.location.street.number} {userDetails.location.street.name}, {userDetails.location.city}, {userDetails.location.state}, {userDetails.location.postcode}</p>
+            </div>
             <h3>Login information</h3>
-            {/* <div>
+            <div>
                 <p>uuid {userDetails.login.uuid}</p>
                 <p>Username {userDetails.login.username}</p>
                 <p>Password {userDetails.login.password}</p>
-            </div> */}
+            </div>
         </div>
     );
 }

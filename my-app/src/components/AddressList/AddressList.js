@@ -2,20 +2,7 @@ import { useState, useEffect } from 'react';
 //import { Route, NavLink } from 'react-router-dom';
 import './addressList.css';
 
-export default function AddressList(props) {
-    const [list, setList] = useState([]);
-
-    async function fetchData() {
-        let url = `https://randomuser.me/api/?results=25&seed=thom1461&format=json&nat=ca`;
-        let resp = await fetch(url);
-        let data = await resp.json();
-        setList(data.results);
-    }
-
-    useEffect(() => {
-        console.log('useEffect was called.');
-        fetchData();
-    }, []);
+export default function AddressList({ list }) {
 
     return (
         <div className="addressList">
@@ -31,6 +18,11 @@ export default function AddressList(props) {
                     </p>
                 </div>
                 ))}
+            {list.sort((a, b) => {
+                if (a.name.last < b.name.last) return -1;
+                if (a.name.last > b.name.last) return 1;
+                return 0;
+            })}
             </div>
         </div>
     );
