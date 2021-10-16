@@ -25,13 +25,17 @@ export default function AddressList() {
             {list.length === 0 && <p>Loading...</p>}
             <div className="address-list">
                 {list.map((item, index) => (
-                    <div>
-                        <p className="userName" key={item.name.last}>
-                            {item.name.first} {item.name.last}
-                        </p>
-                        <p className="address" key={item.location.street}>
-                        {item.location.street.number} {item.location.street.name}, {item.location.city}, {item.location.state}, {item.location.postcode}
-                    </p>
+                    <div className="card">
+                        <div className="name">
+                            <p className="userName" key={item.name.last}>
+                                {item.name.first} {item.name.last}
+                            </p>
+                        </div>
+                        <div className="address">
+                            <p className="addressP" key={item.location.street}>
+                                {item.location.street.number} {item.location.street.name}, {item.location.city}, {item.location.state}, {item.location.postcode}
+                            </p>
+                        </div>
                     </div>
                 ))}
             </div>

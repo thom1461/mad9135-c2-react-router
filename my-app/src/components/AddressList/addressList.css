@@ -1,0 +1,17 @@
+.card{
+    display: flex;
+    padding-top: .5rem;
+    padding-left: 2rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid #aaa;
+    align-content: start;
+}
+
+.name{
+    padding-right: 5rem;
+}
+
+.address{
+    flex-direction: column;
+    text-align: right;
+}

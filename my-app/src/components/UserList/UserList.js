@@ -15,15 +15,10 @@ export default function UserList() {
         })();
     }, []);
 
-    // function findUser(id) {
-    //     let fu = list.find((item, index) => parseInt(id) === index + 1);
-    //     console.log("User ID:", fu);
-    //     return list.find((item, index) => parseInt(id) === index + 1);
-    // }
-
     return (
+        <>
+        <h2> User list</h2>
         <div className="userList">
-            <h2> User list</h2>
             {list.length === 0 && <p>Loading...</p>}
             <div className="user-list">
             {list.map((item, index) => (
@@ -53,5 +48,6 @@ export default function UserList() {
                 </Route>
             </div>
         </div>
+        </>
     );
 }

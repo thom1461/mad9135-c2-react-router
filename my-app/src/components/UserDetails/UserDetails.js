@@ -15,7 +15,7 @@ export default function UserDetails({ list }) {
 
     return (
         <div>
-            <p>The details about User {id}</p>
+            <h3>{userDetails.name.first} {userDetails.name.last}</h3>
             <img src={userDetails.picture.large} alt={userDetails.name.last}/>
             <h3>Address</h3>
             <div>
